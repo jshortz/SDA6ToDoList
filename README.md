@@ -14,7 +14,7 @@
     * 10.01: Finish README
     * 10.02: Draft scenarios, requirements index, and traceability matrix
 * 10.03: Mentors assigned
-    * 10.03: Draft use-case and sequence diagrams
+    * 10.03: Draft use-case, activity, and sequence diagrams
     * 10.04: Draft class and object diagrams
     * 10.05: Review World of Zuul and build basic scanner interface
     * 10.06: Clean up scanner interface
