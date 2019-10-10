@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.nio.file.*;
 import java.io.IOException;
 import java.util.Date;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileNotFoundException;
 
 /**
  * This class is part of the "Task Manager" application.
@@ -18,13 +21,32 @@ public class TaskList
 {
     // an ArrayList to hold the list of Tasks
     protected static ArrayList<Task> taskList = new ArrayList<>();
+    private static Parser parser;
 
     /**
      * Constructor - creates an empty list, taskList
      */
     public TaskList()
     {
+        parser = new Parser();
         taskList = new ArrayList<Task>();
+    }
+
+    /**
+     * Collect user input to create a Task to add to the list
+     * @param taskToAdd Task to be added to the list
+     */
+    // This assumes that each task is given a variable name - if used as generics, change this
+    public static void createTask()
+    {
+        System.out.println("What is the title of your new task?");
+        String title = parser.reader.nextLine();
+        Date dueDate = parser.getDate();
+        System.out.println("What project is this task associated with?");
+        String project = parser.reader.nextLine();
+
+        Task task = new Task(title, dueDate, project);
+        taskList.add(task);
     }
 
     /**
@@ -32,7 +54,7 @@ public class TaskList
      * @param taskToAdd Task to be added to the list
      */
     // This assumes that each task is given a variable name - if used as generics, change this
-    public static void addTaskToList(Task taskToAdd)
+    public void addTaskToList(Task taskToAdd)
     {
         taskList.add(taskToAdd);
     }
@@ -125,9 +147,24 @@ public class TaskList
      * @return A String containing the contents of the user manual file
      */
 
-    public static void displayHelp(String filename)
+    public static void displayHelp()
     {
-
+        BufferedReader in = null;
+        try {
+            in = new BufferedReader(new FileReader("UserManual.txt"));
+            String line = in.readLine();
+            while (line != null) {
+                System.out.println(line);
+                line = in.readLine();
+            }
+            in.close();
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException f) {
+            System.out.println(f.getMessage());
+        } finally {
+            // in.close();
+        }
     }
 
     /**
@@ -162,17 +199,68 @@ public class TaskList
     }
 
     /**
+     * Method that runs the program and processes user inputs
+     */
+
+    public static void run()
+    {
+        printWelcome();
+
+        // program will continue accepting commands until <finished> is true
+        // only saving and quitting will set <finished> to true
+        boolean finished = false;
+        while (!finished) {
+            Command command = parser.getCommand();
+            finished = processCommand(command);
+        }
+        System.out.println("We hope you enjoyed using Task Manager. Your task list has been saved and can be viewed the next time you run the program.");
+
+    }
+
+    /**
+     * Given a command, process (that is: execute) the command.
+     * @param command The command to be processed.
+     * @return true if the command ends the application, false otherwise.
+     */
+    private static boolean processCommand(Command command)
+    {
+        boolean wantToQuit = false;
+
+        CommandWord commandWord = command.getCommandWord();
+
+        switch (commandWord) {
+            case UNKNOWN:
+                System.out.println("Please enter a valid command.");
+                break;
+            case HELP:
+                displayHelp();
+                break;
+            case VIEW:
+                displayTaskList();
+                break;
+            case ADD:
+                createTask();
+            // case QUIT:
+                // wantToQuit = quit(command);
+                // break;
+        }
+        return wantToQuit;
+    }
+
+
+    /**
      * Main method used to run core functionalities of system
      */
 
     public static void main(String[] args) {
-        Date current = new Date();
-        Task dishes = new Task("Wash the dishes", current, "Household");
-        addTaskToList(dishes);
-        Task laundry = new Task("Put in machine", current, "Household");
-        addTaskToList(laundry);
+        // Date current = new Date();
+        // Task dishes = new Task("Wash the dishes", current, "Household");
+        // addTaskToList(dishes);
+        // Task laundry = new Task("Put in machine", current, "Household");
+        // addTaskToList(laundry);
         printWelcome();
-        displayTaskList();
+        // displayTaskList();
+        run();
     }
 
 }

@@ -7,7 +7,7 @@ import java.util.HashMap;
  * This class holds an enumeration of all command words known to the application.
  * It is used to recognise commands as they are typed in.
  *
- * @author  Jessica Shortz, based on work by Michael Kölling and David J. Barnes
+ * @author  Jessica Shortz, based on work by Michael Kolling and David J. Barnes
  * @version 2019.10.06
  */
 
