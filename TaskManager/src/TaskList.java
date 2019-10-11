@@ -45,8 +45,7 @@ public class TaskList
         System.out.println("What project is this task associated with?");
         String project = parser.reader.nextLine();
 
-        Task task = new Task(title, dueDate, project);
-        taskList.add(task);
+        taskList.add(new Task(title, dueDate, project));
     }
 
     /**
@@ -86,13 +85,13 @@ public class TaskList
      * Edit a selected task from the taskList
      * @param taskToEdit Task to be edited
      */
-    public void editTask(Task taskToEdit, String newTitle, String project, Date newDueDate, boolean progress, boolean changeComplete)
+    public void editTask(Task taskToEdit, String newTitle, String project, Date newDueDate, boolean progress, boolean isComplete)
     {
         taskToEdit.title = newTitle;
         taskToEdit.partOfProject = project;
         taskToEdit.dueDate = newDueDate;
         taskToEdit.inProgress = progress;
-        taskToEdit.complete = changeComplete;
+        taskToEdit.complete = isComplete;
     }
 
     /**
