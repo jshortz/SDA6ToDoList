@@ -42,3 +42,8 @@
 
 [Project Specification and Schedule](https://docs.google.com/document/d/1p6hDJFLd8cLC-uTCz-X8aLDKaee3z9Y9v15tkSm4XlM/edit)
 : Technical specifications and schedule of assignment, midpoint, and end phases
+
+### Resources
+* As a very junior developer, I relied on a number of resources in building this project - I've tried to collect them below
+1. [link](https://www.mkyong.com/java/java-how-to-save-a-string-to-a-file/) : I used this to review how to save information to files with java.nio
+2. [Stack Overflow](https://stackoverflow.com/questions) : I used Stack Overflow to solve a variety of small problems

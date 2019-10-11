@@ -13,7 +13,11 @@
  *
  * If the command had only one word, then the second word is <null>.
  *
+<<<<<<< HEAD
  * @author  Jessica Shortz, based on work by Michael Kölling and David J. Barnes
+=======
+ * @author  Jessica Shortz, based on work by Michael Kolling and David J. Barnes
+>>>>>>> parser_inclusion
  * @version 2019.10.06
  */
 
@@ -29,10 +33,17 @@ public class Command
      *                  was not recognised.
      * @param secondWord The second word of the command. May be null.
      */
+<<<<<<< HEAD
     public Command(CommandWord commandWord, String secondWord)
     {
         this.commandWord = commandWord;
         this.secondWord = secondWord;
+=======
+    public Command(CommandWord commandWord)
+    {
+        this.commandWord = commandWord;
+        // this.secondWord = secondWord;
+>>>>>>> parser_inclusion
     }
 
     /**
