@@ -84,29 +84,29 @@ public class Task {
         }
     }
 
-     /**                                              
-      * Checks if status is In Progress
-      * @return true if task is in progress
-      */
-     public boolean isInProgress() {
-         if (inProgress) {
-             return true;
-         } else {
-             return false;
-         }
-     }
-
-     /**
-     * Checks if status is complete
-     * @return true if task is complete
+    /**
+     * Checks if status is In Progress
+     * @return true if task is in progress
      */
-     public boolean isComplete() {
-         if (complete) {
+    public boolean isInProgress() {
+        if (inProgress) {
             return true;
         } else {
             return false;
         }
-     }
+    }
+
+    /**
+     * Checks if status is complete
+     * @return true if task is complete
+     */
+    public boolean isComplete() {
+        if (complete) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
      * Gets the project of a task
@@ -142,9 +142,5 @@ public class Task {
             overdue = false;
         }
     }
-<<<<<<< HEAD
-     
-=======
->>>>>>> parser_inclusion
 
 }

@@ -2,12 +2,9 @@ import java.util.ArrayList;
 import java.nio.file.*;
 import java.io.IOException;
 import java.util.Date;
-<<<<<<< HEAD
-=======
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
->>>>>>> parser_inclusion
 
 /**
  * This class is part of the "Task Manager" application.
@@ -24,26 +21,18 @@ public class TaskList
 {
     // an ArrayList to hold the list of Tasks
     protected static ArrayList<Task> taskList = new ArrayList<>();
-<<<<<<< HEAD
-=======
     private static Parser parser;
->>>>>>> parser_inclusion
 
     /**
      * Constructor - creates an empty list, taskList
      */
     public TaskList()
     {
-<<<<<<< HEAD
-=======
         parser = new Parser();
->>>>>>> parser_inclusion
         taskList = new ArrayList<Task>();
     }
 
     /**
-<<<<<<< HEAD
-=======
      * Collect user input to create a Task to add to the list
      * @param taskToAdd Task to be added to the list
      */
@@ -60,16 +49,11 @@ public class TaskList
     }
 
     /**
->>>>>>> parser_inclusion
      * Add a task to the taskList
      * @param taskToAdd Task to be added to the list
      */
     // This assumes that each task is given a variable name - if used as generics, change this
-<<<<<<< HEAD
-    public static void addTaskToList(Task taskToAdd)
-=======
     public void addTaskToList(Task taskToAdd)
->>>>>>> parser_inclusion
     {
         taskList.add(taskToAdd);
     }
@@ -101,21 +85,13 @@ public class TaskList
      * Edit a selected task from the taskList
      * @param taskToEdit Task to be edited
      */
-<<<<<<< HEAD
-    public void editTask(Task taskToEdit, String newTitle, String project, Date newDueDate, boolean progress, boolean changeComplete)
-=======
     public void editTask(Task taskToEdit, String newTitle, String project, Date newDueDate, boolean progress, boolean isComplete)
->>>>>>> parser_inclusion
     {
         taskToEdit.title = newTitle;
         taskToEdit.partOfProject = project;
         taskToEdit.dueDate = newDueDate;
         taskToEdit.inProgress = progress;
-<<<<<<< HEAD
-        taskToEdit.complete = changeComplete;
-=======
         taskToEdit.complete = isComplete;
->>>>>>> parser_inclusion
     }
 
     /**
@@ -170,11 +146,6 @@ public class TaskList
      * @return A String containing the contents of the user manual file
      */
 
-<<<<<<< HEAD
-    public static void displayHelp(String filename)
-    {
-
-=======
     public static void displayHelp()
     {
         BufferedReader in = null;
@@ -193,7 +164,6 @@ public class TaskList
         } finally {
             // in.close();
         }
->>>>>>> parser_inclusion
     }
 
     /**
@@ -228,8 +198,6 @@ public class TaskList
     }
 
     /**
-<<<<<<< HEAD
-=======
      * Method that runs the program and processes user inputs
      */
 
@@ -271,7 +239,7 @@ public class TaskList
                 break;
             case ADD:
                 createTask();
-            // case QUIT:
+                // case QUIT:
                 // wantToQuit = quit(command);
                 // break;
         }
@@ -280,20 +248,10 @@ public class TaskList
 
 
     /**
->>>>>>> parser_inclusion
      * Main method used to run core functionalities of system
      */
 
     public static void main(String[] args) {
-<<<<<<< HEAD
-        Date current = new Date();
-        Task dishes = new Task("Wash the dishes", current, "Household");
-        addTaskToList(dishes);
-        Task laundry = new Task("Put in machine", current, "Household");
-        addTaskToList(laundry);
-        printWelcome();
-        displayTaskList();
-=======
         // Date current = new Date();
         // Task dishes = new Task("Wash the dishes", current, "Household");
         // addTaskToList(dishes);
@@ -302,7 +260,6 @@ public class TaskList
         printWelcome();
         // displayTaskList();
         run();
->>>>>>> parser_inclusion
     }
 
 }

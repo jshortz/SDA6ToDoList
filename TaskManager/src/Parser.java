@@ -1,10 +1,7 @@
 import java.util.Scanner;
-<<<<<<< HEAD
-=======
 import java.util.Date;
 import java.util.HashMap;
 import java.io.FileNotFoundException;
->>>>>>> parser_inclusion
 
 /**
  * This class is part of the "Task Manager" application.
@@ -19,22 +16,14 @@ import java.io.FileNotFoundException;
  * the known commands, and if the input is not one of the known commands, it
  * returns a command object that is marked as an unknown command.
  *
-<<<<<<< HEAD
- * @author  Jessica Shortz, based on work by Michael Kölling and David J. Barnes
-=======
  * @author  Jessica Shortz, based on work by Michael Kolling and David J. Barnes
->>>>>>> parser_inclusion
  * @version 2019.10.06
  */
 
 public class Parser
 {
     private CommandWords commands;  // holds all valid command words
-<<<<<<< HEAD
-    private Scanner reader;         // source of command input
-=======
     protected Scanner reader;         // source of command input
->>>>>>> parser_inclusion
 
     /**
      * Create a parser to read from the terminal window.
@@ -46,8 +35,6 @@ public class Parser
     }
 
     /**
-<<<<<<< HEAD
-=======
      * Gets a date by prompting the user for inputs
      * @return Date from user
      */
@@ -105,15 +92,11 @@ public class Parser
     }
 
     /**
->>>>>>> parser_inclusion
      * @return The next command from the user.
      */
     public Command getCommand()
     {
-<<<<<<< HEAD
-=======
         System.out.println("What would you like to do?");
->>>>>>> parser_inclusion
         String inputLine;   // will hold the full input line
         String word1 = null;
         String word2 = null;
@@ -126,37 +109,20 @@ public class Parser
         Scanner tokenizer = new Scanner(inputLine);
         if(tokenizer.hasNext()) {
             word1 = tokenizer.next();      // get first word
-<<<<<<< HEAD
-            if(tokenizer.hasNext()) {
-                word2 = tokenizer.next();      // get second word
-                // note: we just ignore the rest of the input line.
-            }
-        }
-
-        return new Command(commands.getCommandWord(word1), word2);
-=======
             // if(tokenizer.hasNext()) {
-               //  word2 = tokenizer.next();      // get second word
-                // note: we just ignore the rest of the input line.
+            //  word2 = tokenizer.next();      // get second word
+            // note: we just ignore the rest of the input line.
             // }
         }
 
         return new Command(commands.getCommandWord(word1));
->>>>>>> parser_inclusion
     }
 
     /**
      * Print out a list of valid command words.
      */
-<<<<<<< HEAD
-    public void showCommands()
-    {
-        commands.showAll();
-    }
-=======
     //public void showCommands()
     // {
-        // commands.showAll();
+    // commands.showAll();
     // }
->>>>>>> parser_inclusion
 }
